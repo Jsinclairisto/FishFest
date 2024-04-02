@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 806188320}
   - component: {fileID: 806188319}
   - component: {fileID: 806188321}
+  - component: {fileID: 806188322}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -379,6 +380,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anglePerSecond: 230
   swimForce: 10
+--- !u!114 &806188322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806188316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc0d2c877aec94841bd1537ecb65945b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 5386839182630651260, guid: f6e34840867f1ac48b4d93188b381a75, type: 3}
+  firePoint: {fileID: 1179705084}
 --- !u!1 &1179705083
 GameObject:
   m_ObjectHideFlags: 0
