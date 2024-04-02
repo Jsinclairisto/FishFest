@@ -6,10 +6,24 @@ public class Weapon : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public Transform firePoint;
+    public float timeBetweenFiring;
+    public bool canFire;
+    private float timer;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (!canFire)
         {
+            timer += Time.deltaTime;
+            if (timer > timeBetweenFiring)
+            {
+                canFire = true;
+                timer = 0;
+            }
+        }
+
+        if (Input.GetKey(KeyCode.Z) && canFire)
+        {
+            canFire = false;
             Shoot();
         }
     }

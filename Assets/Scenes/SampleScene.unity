@@ -394,6 +394,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 5386839182630651260, guid: f6e34840867f1ac48b4d93188b381a75, type: 3}
   firePoint: {fileID: 1179705084}
+  timeBetweenFiring: 0.15
+  canFire: 1
 --- !u!1 &1179705083
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,7 +406,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1179705084}
   m_Layer: 0
-  m_Name: ShootPoint
+  m_Name: ShootPoint0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
