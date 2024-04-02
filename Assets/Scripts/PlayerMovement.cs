@@ -29,6 +29,4 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(transform.up * swimForce, ForceMode2D.Impulse);
         }
     }
-
-
 }
