@@ -16,7 +16,7 @@ public class PirhanaScript : MonoBehaviour
     void Start()
     {
         waitTime = startWaitTime;
-        
+        moveSpot.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
     }
 
     void Update()
