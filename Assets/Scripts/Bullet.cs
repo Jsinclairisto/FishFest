@@ -8,6 +8,8 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D rb;
     void Start()
     {
+        Physics2D.IgnoreLayerCollision(7,7);
+        Physics2D.IgnoreLayerCollision(7, 6);
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.up * speed;
     }
@@ -15,5 +17,6 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log(col.name);
+        Destroy(this.gameObject);
     }
 }
