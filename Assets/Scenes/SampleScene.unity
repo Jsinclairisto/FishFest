@@ -309,6 +309,14 @@ PrefabInstance:
       propertyPath: enemyPrefab
       value: 
       objectReference: {fileID: 8155101459738246580}
+    - target: {fileID: 5078643240563575192, guid: 0f470afb59696bd4bbdbd1f4f4077c16, type: 3}
+      propertyPath: maximumSpawnTime
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078643240563575192, guid: 0f470afb59696bd4bbdbd1f4f4077c16, type: 3}
+      propertyPath: minimumSpawnTime
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -462,6 +470,14 @@ PrefabInstance:
       propertyPath: enemyPrefab
       value: 
       objectReference: {fileID: 8155101459738246580}
+    - target: {fileID: 5078643240563575192, guid: 0f470afb59696bd4bbdbd1f4f4077c16, type: 3}
+      propertyPath: maximumSpawnTime
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078643240563575192, guid: 0f470afb59696bd4bbdbd1f4f4077c16, type: 3}
+      propertyPath: minimumSpawnTime
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -896,6 +912,14 @@ PrefabInstance:
       propertyPath: enemyPrefab
       value: 
       objectReference: {fileID: 8155101459738246580}
+    - target: {fileID: 5078643240563575192, guid: 0f470afb59696bd4bbdbd1f4f4077c16, type: 3}
+      propertyPath: maximumSpawnTime
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078643240563575192, guid: 0f470afb59696bd4bbdbd1f4f4077c16, type: 3}
+      propertyPath: minimumSpawnTime
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1087,6 +1111,14 @@ PrefabInstance:
       propertyPath: enemyPrefab
       value: 
       objectReference: {fileID: 8155101459738246580}
+    - target: {fileID: 5078643240563575192, guid: 0f470afb59696bd4bbdbd1f4f4077c16, type: 3}
+      propertyPath: maximumSpawnTime
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078643240563575192, guid: 0f470afb59696bd4bbdbd1f4f4077c16, type: 3}
+      propertyPath: minimumSpawnTime
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1232,11 +1264,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2395849922358790473, guid: 3d3373a6578d23f45bc0d31e91c1d1e9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -40.9
+      value: 8.2
       objectReference: {fileID: 0}
     - target: {fileID: 2395849922358790473, guid: 3d3373a6578d23f45bc0d31e91c1d1e9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -19.1
+      value: -4.9
       objectReference: {fileID: 0}
     - target: {fileID: 2395849922358790473, guid: 3d3373a6578d23f45bc0d31e91c1d1e9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1275,9 +1307,17 @@ PrefabInstance:
       value: Piranha
       objectReference: {fileID: 0}
     - target: {fileID: 5429692363130870731, guid: 3d3373a6578d23f45bc0d31e91c1d1e9, type: 3}
+      propertyPath: range
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429692363130870731, guid: 3d3373a6578d23f45bc0d31e91c1d1e9, type: 3}
       propertyPath: moveSpot
       value: 
       objectReference: {fileID: 1056622678}
+    - target: {fileID: 5429692363130870731, guid: 3d3373a6578d23f45bc0d31e91c1d1e9, type: 3}
+      propertyPath: maxDistance
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

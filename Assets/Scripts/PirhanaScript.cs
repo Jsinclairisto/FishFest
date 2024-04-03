@@ -4,35 +4,39 @@ using UnityEngine;
 
 public class PirhanaScript : MonoBehaviour
 {
-    public float speed;
+    [SerializeField]
+    private float speed;
+    [SerializeField]
+    private float range;
+/*    [SerializeField]
+    private float maxDistance;*/
+    [SerializeField]
+    private float minX;
+    [SerializeField]
+    private float maxX;
+    [SerializeField]
+    private float minY;
+    [SerializeField]
+    private float maxY;
 
-    public Transform moveSpot;
-    private float waitTime;
-    public float startWaitTime;
-    public float minX;
-    public float maxX;
-    public float minY;
-    public float maxY;
+    Vector2 waypoint;
+
     void Start()
     {
-        waitTime = startWaitTime;
-        moveSpot.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+        SetNewDestination();    
     }
-
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, moveSpot.position, speed * Time.deltaTime);
-        if (Vector2.Distance(transform.position, moveSpot.position) < 0.2f)
+        transform.position = Vector2.MoveTowards(transform.position, waypoint, speed * Time.deltaTime);
+        if (Vector2.Distance(transform.position, waypoint) < range) 
         {
-            if (waitTime <= 0)
-            {
-                moveSpot.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
-                waitTime = startWaitTime;
-            }
-            else 
-            {
-                waitTime -= Time.deltaTime;
-            }
+            SetNewDestination();
         }
     }
+
+    void SetNewDestination() 
+    {
+        waypoint = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+    }
+
 }
