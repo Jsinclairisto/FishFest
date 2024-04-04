@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PirhanaScript : MonoBehaviour
 {
-    [SerializeField]
     private float speed;
     [SerializeField]
     private float range;
@@ -19,11 +18,14 @@ public class PirhanaScript : MonoBehaviour
     [SerializeField]
     private float maxY;
 
+    private int pirhanaHealth = 3;
+
     Vector2 waypoint;
 
     void Start()
     {
-        SetNewDestination();    
+        SetNewDestination();
+        speed = Random.Range(5, 15);
     }
     void Update()
     {
@@ -32,11 +34,25 @@ public class PirhanaScript : MonoBehaviour
         {
             SetNewDestination();
         }
+        if (pirhanaHealth == 0) 
+        {
+            Destroy(this.gameObject);
+        }
+
     }
 
-    void SetNewDestination() 
+    void SetNewDestination()
     {
         waypoint = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
     }
+
+    public void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("bullet")) 
+        {
+            pirhanaHealth--;
+        }
+    }
+
 
 }

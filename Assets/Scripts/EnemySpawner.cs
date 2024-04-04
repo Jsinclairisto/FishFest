@@ -22,7 +22,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         timeUntilSpawn -= Time.deltaTime;
 
@@ -31,6 +31,12 @@ public class EnemySpawner : MonoBehaviour
             Instantiate(enemyPrefab, transform.position, Quaternion.identity);
             SetTimeUntilSpawn();
         }
+        if (minimumSpawnTime > 2 && maximumSpawnTime > 2) 
+        {
+            minimumSpawnTime -= 0.0009f;
+            maximumSpawnTime -= 0.0009f;
+        }
+
     }
 
     private void SetTimeUntilSpawn() 
