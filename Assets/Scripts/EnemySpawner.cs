@@ -31,14 +31,13 @@ public class EnemySpawner : MonoBehaviour
             Instantiate(enemyPrefab, transform.position, Quaternion.identity);
             SetTimeUntilSpawn();
         }
-        if (minimumSpawnTime > 2 && maximumSpawnTime > 2) 
+        if (minimumSpawnTime > 4 && maximumSpawnTime > 4) 
         {
             minimumSpawnTime -= 0.0009f;
             maximumSpawnTime -= 0.0009f;
         }
 
     }
-
     private void SetTimeUntilSpawn() 
     {
         timeUntilSpawn = Random.Range(minimumSpawnTime, maximumSpawnTime);

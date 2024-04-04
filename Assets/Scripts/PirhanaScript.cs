@@ -18,6 +18,7 @@ public class PirhanaScript : MonoBehaviour
     [SerializeField]
     private float maxY;
 
+    [SerializeField]
     private int pirhanaHealth = 3;
 
     Vector2 waypoint;
@@ -25,7 +26,7 @@ public class PirhanaScript : MonoBehaviour
     void Start()
     {
         SetNewDestination();
-        speed = Random.Range(5, 15);
+        speed = Random.Range(5, 10);
     }
     void Update()
     {

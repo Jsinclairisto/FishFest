@@ -1,0 +1,22 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+
+public class Knockback : MonoBehaviour
+{
+    [SerializeField]
+    private Rigidbody2D rb;
+
+    [SerializeField]
+    private float strength = 16, delay = 0.15f;
+
+    public UnityEvent OnBegin, OnDone;
+
+    private IEnumerator Reset() 
+    {
+        yield return new WaitForSeconds(delay);
+        rb.velocity = Vector3.zero;
+        OnDone?.Invoke();
+    }
+}
