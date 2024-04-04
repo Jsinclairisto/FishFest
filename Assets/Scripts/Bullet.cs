@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
         Physics2D.IgnoreLayerCollision(7,7);
         Physics2D.IgnoreLayerCollision(7, 6);
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.up * speed;
+        rb.velocity = transform.up * speed;
     }
 
     void OnTriggerEnter2D(Collider2D col)

@@ -52,6 +52,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Piranha Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3346291951873900089, guid: 3d3373a6578d23f45bc0d31e91c1d1e9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fd9e180764f03e4409774d1b176f1f52, type: 3}
+    - target: {fileID: 3346291951873900089, guid: 3d3373a6578d23f45bc0d31e91c1d1e9, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346291951873900089, guid: 3d3373a6578d23f45bc0d31e91c1d1e9, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346291951873900089, guid: 3d3373a6578d23f45bc0d31e91c1d1e9, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5429692363130870731, guid: 3d3373a6578d23f45bc0d31e91c1d1e9, type: 3}
       propertyPath: range
       value: 0.5
@@ -59,6 +75,10 @@ PrefabInstance:
     - target: {fileID: 5429692363130870731, guid: 3d3373a6578d23f45bc0d31e91c1d1e9, type: 3}
       propertyPath: maxDistance
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735022245314366570, guid: 3d3373a6578d23f45bc0d31e91c1d1e9, type: 3}
+      propertyPath: m_Radius
+      value: 1.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
