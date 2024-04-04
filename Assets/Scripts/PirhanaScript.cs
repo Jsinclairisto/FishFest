@@ -19,12 +19,17 @@ public class PirhanaScript : MonoBehaviour
     private float maxY;
 
     [SerializeField]
+    private float knockBackForce;
+
+    [SerializeField]
     private int pirhanaHealth = 3;
 
+    private Rigidbody2D rb;
     Vector2 waypoint;
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         SetNewDestination();
         speed = Random.Range(5, 10);
     }
@@ -51,6 +56,9 @@ public class PirhanaScript : MonoBehaviour
     {
         if (col.CompareTag("bullet")) 
         {
+            Vector2 direction = (col.transform.position - transform.position).normalized;
+            Vector2 knockback = direction * knockBackForce;
+            rb.AddForce(-knockback, ForceMode2D.Impulse);
             pirhanaHealth--;
         }
     }

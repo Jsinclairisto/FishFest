@@ -13,6 +13,15 @@ public class Knockback : MonoBehaviour
 
     public UnityEvent OnBegin, OnDone;
 
+    public void PlayFeedback(GameObject sender) 
+    {
+        StopAllCoroutines();
+        OnBegin.Invoke();
+        Vector2 direction = (transform.position - sender.transform.position).normalized;
+        rb.AddForce(direction * strength, ForceMode2D.Impulse);
+        StartCoroutine(Reset());
+    }
+
     private IEnumerator Reset() 
     {
         yield return new WaitForSeconds(delay);
