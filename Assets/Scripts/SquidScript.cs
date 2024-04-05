@@ -17,32 +17,45 @@ public class SquidScript : MonoBehaviour
     private float minY;
     [SerializeField]
     private float maxY;
-
+    private float waitTime;
+    private float startWaitTime;
+    private Transform moveSpot;
     [SerializeField]
     private float knockBackForce;
-
+    Vector2 waypoint;
     [SerializeField]
     private int squidHealth = 3;
 
-    private Transform player;
+    //private Transform player;
     private Animator anim;
     private Rigidbody2D rb;
-    Vector2 waypoint;
-
     void Start()
     {
         //player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        moveSpot = GameObject.FindWithTag("moveSpot").transform;
         rb = GetComponent<Rigidbody2D>();
-        SetNewDestination();
+        waitTime = startWaitTime;
         speed = Random.Range(5, 10);
         anim = GetComponent<Animator>();
+        moveSpot.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+        SetNewDestination();
+        speed = Random.Range(5, 8);
 
     }
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, waypoint, speed * Time.deltaTime);
-        if (Vector2.Distance(transform.position, waypoint) < range) 
+        if (Vector2.Distance(transform.position, waypoint) < range)
         {
+            /*if (waitTime <= 0)
+            {
+                moveSpot.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+                waitTime = startWaitTime;
+            }
+            else 
+            {
+                waitTime -= Time.deltaTime;
+            }*/
             SetNewDestination();
         }
         
@@ -50,7 +63,6 @@ public class SquidScript : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
     }
 
     void SetNewDestination()

@@ -176,5 +176,7 @@ MonoBehaviour:
   maxX: 23
   minY: 11
   maxY: -11
+  startWaitTime: 0
+  moveSpot: {fileID: 7069904227768089268}
   knockBackForce: 0
   squidHealth: 3

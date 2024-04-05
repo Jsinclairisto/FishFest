@@ -34,11 +34,11 @@ public class PirhanaScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
         //SetNewDestination();
-        speed = Random.Range(5, 10);
+        speed = Random.Range(5, 8);
         anim = GetComponent<Animator>();
 
     }
-    void Update()
+    void FixedUpdate()
     {
         /*transform.position = Vector2.MoveTowards(transform.position, waypoint, speed * Time.deltaTime);
         if (Vector2.Distance(transform.position, waypoint) < range) 
