@@ -31,7 +31,7 @@ public class EnemySpawner : MonoBehaviour
             Instantiate(enemyPrefab, transform.position, Quaternion.identity);
             SetTimeUntilSpawn();
         }
-        if (minimumSpawnTime > 5 && maximumSpawnTime > 5) 
+        if (minimumSpawnTime > 3 && maximumSpawnTime > 3) 
         {
             minimumSpawnTime -= 0.0009f;
             maximumSpawnTime -= 0.0009f;
