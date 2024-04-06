@@ -23,7 +23,7 @@ public class PirhanaScript : MonoBehaviour
 
     [SerializeField]
     private int pirhanaHealth = 3;
-
+    private bool flip;
     private Transform player;
     private Animator anim;
     private Rigidbody2D rb;
@@ -46,6 +46,16 @@ public class PirhanaScript : MonoBehaviour
             SetNewDestination();
         }
         */
+        Vector3 scale = transform.localScale;
+        if (player.position.x > transform.position.x)
+        {
+            scale.x = Mathf.Abs(scale.x) * (flip ? -1 : 1);
+        }
+        else 
+        {
+            scale.x = Mathf.Abs(scale.x) * -1 *(flip ? -1 : 1);
+        }
+        transform.localScale = scale;
         if (pirhanaHealth == 0) 
         {
             Destroy(this.gameObject);
