@@ -27,6 +27,7 @@ public class PirhanaScript : MonoBehaviour
     private Transform player;
     private Animator anim;
     private Rigidbody2D rb;
+    public GameObject deathEffect;
     Vector2 waypoint;
 
     void Start()
@@ -46,21 +47,30 @@ public class PirhanaScript : MonoBehaviour
             SetNewDestination();
         }
         */
+       
+
+        if (pirhanaHealth == 0) 
+        {
+            Instantiate(deathEffect, transform.position, transform.rotation);
+            Destroy(this.gameObject);
+        }
+        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+    }
+
+    private void LateUpdate()
+    {
         Vector3 scale = transform.localScale;
         if (player.position.x > transform.position.x)
         {
             scale.x = Mathf.Abs(scale.x) * (flip ? -1 : 1);
+            //transform.Rotate(new Vector3(0, 0, 0));
         }
-        else 
+        else
         {
-            scale.x = Mathf.Abs(scale.x) * -1 *(flip ? -1 : 1);
+            scale.x = Mathf.Abs(scale.x) * -1 * (flip ? -1 : 1);
+            //transform.Rotate(new Vector3(0, 180, 0));
         }
         transform.localScale = scale;
-        if (pirhanaHealth == 0) 
-        {
-            Destroy(this.gameObject);
-        }
-        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
     }
 
     /*void SetNewDestination()

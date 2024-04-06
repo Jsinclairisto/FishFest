@@ -28,6 +28,7 @@ public class SquidScript : MonoBehaviour
 
     //private Transform player;
     private Animator anim;
+
     private Rigidbody2D rb;
     void Start()
     {

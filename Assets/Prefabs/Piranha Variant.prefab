@@ -73,6 +73,10 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5429692363130870731, guid: 3d3373a6578d23f45bc0d31e91c1d1e9, type: 3}
+      propertyPath: deathEffect
+      value: 
+      objectReference: {fileID: 6745999117141458686, guid: 901d8cbcceda7a8499017462218075af, type: 3}
+    - target: {fileID: 5429692363130870731, guid: 3d3373a6578d23f45bc0d31e91c1d1e9, type: 3}
       propertyPath: maxDistance
       value: 15
       objectReference: {fileID: 0}
@@ -188,16 +192,16 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.081106186, y: 0.020276487}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.40625, y: 1.53125}
+    oldSize: {x: 1.4375, y: 1.5625}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.1622123, y: 1.3811961}
   m_EdgeRadius: 0
