@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject playerDeath;
     public bool playerHitRoutine = false;
     public int health = 5;
+    SoundManager soundManager;
     private ShakeManager shake;
     Renderer rend;
     Color c;
@@ -19,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         rend = GetComponent<Renderer>();
+        soundManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<SoundManager>();
         c = rend.material.color;
         shake = GameObject.FindGameObjectWithTag("Shake").GetComponent<ShakeManager>();
     }
@@ -38,12 +40,14 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            soundManager.PlaySFX(soundManager.swim);
             StartCoroutine(Swim());
             //anim.Play("playerswim");
             rb.AddForce(transform.up * swimForce, ForceMode2D.Impulse);
         }
         if (health <= 0) 
         {
+            soundManager.PlaySFX(soundManager.death);
             shake.CamShake();
             transform.rotation = Quaternion.Euler(0, 0, 0);
             Instantiate(playerDeath, transform.position, transform.rotation);
@@ -59,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
             Vector2 knockback = direction * knockBackForce;
             rb.AddForce(knockback, ForceMode2D.Impulse);
             StartCoroutine(hit());*/
+            soundManager.PlaySFX(soundManager.bulletHit);
             shake.CamShake();
             health--;
             StartCoroutine("playerHit");

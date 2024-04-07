@@ -8,6 +8,7 @@ TagManager:
   - moveSpot
   - Enemy
   - Shake
+  - Audio
   layers:
   - Default
   - TransparentFX
