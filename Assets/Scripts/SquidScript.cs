@@ -27,6 +27,7 @@ public class SquidScript : MonoBehaviour
     private int squidHealth = 3;
 
     //private Transform player;
+    private ShakeManager shake;
     private Animator anim;
     private Rigidbody2D rb;
     public GameObject squidDeathEffect;
@@ -39,6 +40,7 @@ public class SquidScript : MonoBehaviour
         speed = Random.Range(5, 10);
         anim = GetComponent<Animator>();
         moveSpot.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+        shake = GameObject.FindGameObjectWithTag("Shake").GetComponent<ShakeManager>();
         SetNewDestination();
         speed = Random.Range(5, 8);
 
@@ -62,6 +64,7 @@ public class SquidScript : MonoBehaviour
         
         if (squidHealth == 0)
         {
+            shake.CamShake();
             Instantiate(squidDeathEffect, transform.position, transform.rotation);
             Destroy(this.gameObject);
         }

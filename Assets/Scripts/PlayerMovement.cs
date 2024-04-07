@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject playerDeath;
     public bool playerHitRoutine = false;
     public int health = 5;
+    private ShakeManager shake;
     Renderer rend;
     Color c;
     void Start()
@@ -19,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         rend = GetComponent<Renderer>();
         c = rend.material.color;
+        shake = GameObject.FindGameObjectWithTag("Shake").GetComponent<ShakeManager>();
     }
 
     void Update()
@@ -42,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (health <= 0) 
         {
+            shake.CamShake();
             transform.rotation = Quaternion.Euler(0, 0, 0);
             Instantiate(playerDeath, transform.position, transform.rotation);
             Destroy(gameObject);
@@ -56,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
             Vector2 knockback = direction * knockBackForce;
             rb.AddForce(knockback, ForceMode2D.Impulse);
             StartCoroutine(hit());*/
+            shake.CamShake();
             health--;
             StartCoroutine("playerHit");
         }

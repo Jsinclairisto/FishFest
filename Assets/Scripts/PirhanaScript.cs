@@ -23,6 +23,7 @@ public class PirhanaScript : MonoBehaviour
 
     [SerializeField]
     private int pirhanaHealth = 3;
+    private ShakeManager shake;
     private bool flip;
     private Transform player;
     private Animator anim;
@@ -37,6 +38,7 @@ public class PirhanaScript : MonoBehaviour
         //SetNewDestination();
         speed = Random.Range(5, 8);
         anim = GetComponent<Animator>();
+        shake = GameObject.FindGameObjectWithTag("Shake").GetComponent<ShakeManager>();
 
     }
     void FixedUpdate()
@@ -51,6 +53,7 @@ public class PirhanaScript : MonoBehaviour
 
         if (pirhanaHealth == 0) 
         {
+            shake.CamShake();
             Instantiate(deathEffect, transform.position, transform.rotation);
             Destroy(this.gameObject);
         }
@@ -82,6 +85,7 @@ public class PirhanaScript : MonoBehaviour
     {
         if (col.CompareTag("bullet")) 
         {
+            
             Vector2 direction = (transform.position - col.transform.position).normalized;
             Vector2 knockback = direction * knockBackForce;
             rb.AddForce(knockback, ForceMode2D.Impulse);
