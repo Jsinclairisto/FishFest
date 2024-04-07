@@ -280,6 +280,7 @@ MonoBehaviour:
   death: {fileID: 8300000, guid: 5d958810b2140e74fb9ea6c2d1f67abb, type: 3}
   swim: {fileID: 8300000, guid: 45e4b3928e76b474ba631a3dd0636b40, type: 3}
   bulletShoot: {fileID: 8300000, guid: 8476c29ac57e4ef4e9a8fd15e70d18bd, type: 3}
+  squidShoot: {fileID: 8300000, guid: 11702f51022b006418b751ab21c867c4, type: 3}
 --- !u!1 &7912638400560068276
 GameObject:
   m_ObjectHideFlags: 0

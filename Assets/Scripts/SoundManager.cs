@@ -16,6 +16,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip death;
     public AudioClip swim;
     public AudioClip bulletShoot;
+    public AudioClip squidShoot;
 
     void Start()
     {

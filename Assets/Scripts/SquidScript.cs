@@ -68,10 +68,14 @@ public class SquidScript : MonoBehaviour
             SetNewDestination();
         }
 
-        if (timeBtwShots <= 0) 
+        if (timeBtwShots <= 0)
         {
             Instantiate(projectile, transform.position, Quaternion.identity);
             timeBtwShots = startTimeBtwShots;
+        }
+        else 
+        {
+            timeBtwShots -= Time.deltaTime;
         }
         
         if (squidHealth == 0)

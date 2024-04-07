@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Shake
   - Audio
+  - Wall
   layers:
   - Default
   - TransparentFX
