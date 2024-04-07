@@ -22,10 +22,14 @@ public class SquidScript : MonoBehaviour
     private Transform moveSpot;
     [SerializeField]
     private float knockBackForce;
+    SoundManager soundManager;
     Vector2 waypoint;
     [SerializeField]
     private int squidHealth = 3;
-
+    public GameObject projectile;
+    private float timeBtwShots;
+    public float startTimeBtwShots;
+    private Transform player;
     //private Transform player;
     private ShakeManager shake;
     private Animator anim;
@@ -34,6 +38,7 @@ public class SquidScript : MonoBehaviour
     void Start()
     {
         //player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         moveSpot = GameObject.FindWithTag("moveSpot").transform;
         rb = GetComponent<Rigidbody2D>();
         waitTime = startWaitTime;
@@ -41,6 +46,7 @@ public class SquidScript : MonoBehaviour
         anim = GetComponent<Animator>();
         moveSpot.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
         shake = GameObject.FindGameObjectWithTag("Shake").GetComponent<ShakeManager>();
+        soundManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<SoundManager>();
         SetNewDestination();
         speed = Random.Range(5, 8);
 
@@ -61,9 +67,16 @@ public class SquidScript : MonoBehaviour
             }*/
             SetNewDestination();
         }
+
+        if (timeBtwShots <= 0) 
+        {
+            Instantiate(projectile, transform.position, Quaternion.identity);
+            timeBtwShots = startTimeBtwShots;
+        }
         
         if (squidHealth == 0)
         {
+            soundManager.PlaySFX(soundManager.death);
             shake.CamShake();
             Instantiate(squidDeathEffect, transform.position, transform.rotation);
             Destroy(this.gameObject);

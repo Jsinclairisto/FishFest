@@ -29,6 +29,7 @@ public class PirhanaScript : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb;
     public GameObject deathEffect;
+    SoundManager soundManager;
     Vector2 waypoint;
 
     void Start()
@@ -37,6 +38,8 @@ public class PirhanaScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         //SetNewDestination();
         speed = Random.Range(5, 8);
+        soundManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<SoundManager>();
+
         anim = GetComponent<Animator>();
         shake = GameObject.FindGameObjectWithTag("Shake").GetComponent<ShakeManager>();
 
@@ -53,6 +56,7 @@ public class PirhanaScript : MonoBehaviour
 
         if (pirhanaHealth == 0) 
         {
+            soundManager.PlaySFX(soundManager.death);
             shake.CamShake();
             Instantiate(deathEffect, transform.position, transform.rotation);
             Destroy(this.gameObject);
