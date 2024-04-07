@@ -649,7 +649,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anglePerSecond: 230
   swimForce: 15
-  health: 3
+  playerHitRoutine: 0
+  health: 5
 --- !u!114 &806188322
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(knockback, ForceMode2D.Impulse);
             StartCoroutine(hit());*/
             health--;
+            anim.Play("playerHit");
             StartCoroutine("playerHit");
         }
     }
@@ -61,10 +62,11 @@ public class PlayerMovement : MonoBehaviour
     {
         playerHitRoutine = true;
         Physics2D.IgnoreLayerCollision(6, 8, true);
-        anim.Play("playerHit");
+  
         yield return new WaitForSeconds(3f);
         Physics2D.IgnoreLayerCollision(6, 8, false);
         anim.Play("playerIdle");
+        playerHitRoutine = false;
     }
 
     private IEnumerator Swim() 
