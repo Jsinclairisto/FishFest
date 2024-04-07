@@ -52,6 +52,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Piranha Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3076019645229636758, guid: 3d3373a6578d23f45bc0d31e91c1d1e9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3076019645229636758, guid: 3d3373a6578d23f45bc0d31e91c1d1e9, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 3346291951873900089, guid: 3d3373a6578d23f45bc0d31e91c1d1e9, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -105,7 +113,7 @@ PrefabInstance:
       addedObject: {fileID: -5743394754990570158}
     - targetCorrespondingSourceObject: {fileID: 3076019645229636758, guid: 3d3373a6578d23f45bc0d31e91c1d1e9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 561462747948658572}
+      addedObject: {fileID: 5163223221378659495}
   m_SourcePrefab: {fileID: 100100000, guid: 3d3373a6578d23f45bc0d31e91c1d1e9, type: 3}
 --- !u!1 &7013065712935796232 stripped
 GameObject:
@@ -160,8 +168,8 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!61 &561462747948658572
-BoxCollider2D:
+--- !u!58 &5163223221378659495
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -192,16 +200,6 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.081106186, y: 0.020276487}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.4375, y: 1.5625}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0.16456328, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1.1622123, y: 1.3811961}
-  m_EdgeRadius: 0
+  m_Radius: 0.5266584

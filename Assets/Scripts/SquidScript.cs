@@ -28,8 +28,8 @@ public class SquidScript : MonoBehaviour
 
     //private Transform player;
     private Animator anim;
-
     private Rigidbody2D rb;
+    public GameObject squidDeathEffect;
     void Start()
     {
         //player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -62,6 +62,7 @@ public class SquidScript : MonoBehaviour
         
         if (squidHealth == 0)
         {
+            Instantiate(squidDeathEffect, transform.position, transform.rotation);
             Destroy(this.gameObject);
         }
     }
@@ -85,8 +86,8 @@ public class SquidScript : MonoBehaviour
 
     private IEnumerator hit()
     {
-        anim.Play("Hit");
+        anim.Play("SquidHit");
         yield return new WaitForSeconds(.1f);
-        anim.Play("Idle");
+        anim.Play("squididle");
     }
 }

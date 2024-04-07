@@ -6,11 +6,16 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float anglePerSecond;
     [SerializeField] private float swimForce;
+    private Animator anim;
     private Rigidbody2D rb;
+    public bool playerHitRoutine = false;
+    public int health = 5;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
+
     void Update()
     {
         Vector3 rotation = transform.localEulerAngles;
@@ -26,7 +31,46 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (!playerHitRoutine) { 
+                StartCoroutine(Swim());
+            }
+            //anim.Play("playerswim");
             rb.AddForce(transform.up * swimForce, ForceMode2D.Impulse);
         }
+
+        if (health <= 0) 
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("Enemy"))
+        {
+            /*Vector2 direction = (transform.position - col.transform.position).normalized;
+            Vector2 knockback = direction * knockBackForce;
+            rb.AddForce(knockback, ForceMode2D.Impulse);
+            StartCoroutine(hit());*/
+            health--;
+            StartCoroutine("playerHit");
+        }
+    }
+
+    private IEnumerator playerHit() 
+    {
+        playerHitRoutine = true;
+        Physics2D.IgnoreLayerCollision(6, 8, true);
+        anim.Play("playerHit");
+        yield return new WaitForSeconds(3f);
+        Physics2D.IgnoreLayerCollision(6, 8, false);
+        anim.Play("playerIdle");
+    }
+
+    private IEnumerator Swim() 
+    {
+        anim.Play("playerswim");
+        yield return new WaitForSeconds(.35f);
+        anim.Play("playerIdle");
     }
 }
