@@ -8,12 +8,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float swimForce;
     private Animator anim;
     private Rigidbody2D rb;
+    public GameObject playerDeath;
     public bool playerHitRoutine = false;
     public int health = 5;
+    Renderer rend;
+    Color c;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        rend = GetComponent<Renderer>();
+        c = rend.material.color;
     }
 
     void Update()
@@ -31,15 +36,14 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (!playerHitRoutine) { 
-                StartCoroutine(Swim());
-            }
+            StartCoroutine(Swim());
             //anim.Play("playerswim");
             rb.AddForce(transform.up * swimForce, ForceMode2D.Impulse);
         }
-
         if (health <= 0) 
         {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            Instantiate(playerDeath, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
@@ -53,7 +57,6 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(knockback, ForceMode2D.Impulse);
             StartCoroutine(hit());*/
             health--;
-            anim.Play("playerHit");
             StartCoroutine("playerHit");
         }
     }
@@ -62,8 +65,35 @@ public class PlayerMovement : MonoBehaviour
     {
         playerHitRoutine = true;
         Physics2D.IgnoreLayerCollision(6, 8, true);
-  
-        yield return new WaitForSeconds(3f);
+        c.a = 0f;
+        rend.material.color = c;
+        yield return new WaitForSeconds(.2f);
+        c.a = 1f;
+        rend.material.color = c;
+        yield return new WaitForSeconds(.2f);
+        c.a = 0f;
+        rend.material.color = c;
+        yield return new WaitForSeconds(.2f);
+        c.a = 1f;
+        rend.material.color = c;
+        yield return new WaitForSeconds(.2f);
+        c.a = 0f;
+        rend.material.color = c;
+        yield return new WaitForSeconds(.2f);
+        c.a = 1f;
+        rend.material.color = c;
+        yield return new WaitForSeconds(.2f);
+        c.a = 0f;
+        rend.material.color = c;
+        yield return new WaitForSeconds(.2f);
+        c.a = 1f;
+        rend.material.color = c;
+        yield return new WaitForSeconds(.2f);
+        c.a = 0f;
+        rend.material.color = c;
+        yield return new WaitForSeconds(.2f);
+        c.a = 1f;
+        rend.material.color = c;
         Physics2D.IgnoreLayerCollision(6, 8, false);
         anim.Play("playerIdle");
         playerHitRoutine = false;
