@@ -11,7 +11,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip mainMusic;
     public AudioClip menuMusic;
     public AudioClip endMusic;
-
+    public PlayerMovement playerDeath;
     public AudioClip bulletHit;
     public AudioClip death;
     public AudioClip swim;
@@ -20,8 +20,17 @@ public class SoundManager : MonoBehaviour
 
     void Start()
     {
+        //musicSource.clip = mainMusic;
         musicSource.clip = mainMusic;
         musicSource.Play();
+    }
+
+    void Update()
+    {
+        if (playerDeath.isDead == true) 
+        {
+            musicSource.Stop();
+        }
     }
 
     public void PlaySFX(AudioClip clip) 

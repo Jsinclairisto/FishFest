@@ -1011,6 +1011,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anglePerSecond: 230
   swimForce: 15
+  gameOverMusic: {fileID: 8457781747186945618, guid: 223a20c847325d5418f7208a949c7e27, type: 3}
+  isDead: 0
   playerDeath: {fileID: 3660332460132918921, guid: 8880b26f7172eda469e317ba71c03d49, type: 3}
   finalScoreScreen: {fileID: 572631316}
   playerHitRoutine: 0
@@ -2794,6 +2796,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4397290171629552871, guid: 4deb7b4c535d24a4eacc1bf030c220eb, type: 3}
+      propertyPath: playerDeath
+      value: 
+      objectReference: {fileID: 806188321}
     - target: {fileID: 4399511205772023298, guid: 4deb7b4c535d24a4eacc1bf030c220eb, type: 3}
       propertyPath: m_Name
       value: SoundManager

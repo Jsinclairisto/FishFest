@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float swimForce;
     private Animator anim;
     private Rigidbody2D rb;
+    public GameObject gameOverMusic;
+    public bool isDead = false;
     public GameObject playerDeath;
     public GameObject finalScoreScreen;
     public bool playerHitRoutine = false;
@@ -56,10 +58,13 @@ public class PlayerMovement : MonoBehaviour
         finalScore.text = Score.ToString();
         if (health <= 0) 
         {
+            isDead = true;
             soundManager.PlaySFX(soundManager.death);
+            soundManager.PlaySFX(soundManager.endMusic);
             finalScoreScreen.SetActive(true);
             shake.CamShake();
             transform.rotation = Quaternion.Euler(0, 0, 0);
+            Instantiate(gameOverMusic, transform.position, transform.rotation);
             Instantiate(playerDeath, transform.position, transform.rotation);
             Destroy(gameObject);
         }
