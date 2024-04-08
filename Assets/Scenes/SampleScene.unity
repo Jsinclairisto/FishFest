@@ -1036,6 +1036,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5386839182630651260, guid: f6e34840867f1ac48b4d93188b381a75, type: 3}
   firePoint: {fileID: 1179705084}
   timeBetweenFiring: 0.1
+  playerMovement: {fileID: 806188321}
   canFire: 1
 --- !u!95 &806188323
 Animator:
@@ -2854,6 +2855,18 @@ PrefabInstance:
       value: 95.55798
       objectReference: {fileID: 0}
     - target: {fileID: 908973528240651318, guid: ffefe647cb368b744bee7e8a6c72fdba, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8466129
+      objectReference: {fileID: 0}
+    - target: {fileID: 908973528240651318, guid: ffefe647cb368b744bee7e8a6c72fdba, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8466129
+      objectReference: {fileID: 0}
+    - target: {fileID: 908973528240651318, guid: ffefe647cb368b744bee7e8a6c72fdba, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8466129
+      objectReference: {fileID: 0}
+    - target: {fileID: 908973528240651318, guid: ffefe647cb368b744bee7e8a6c72fdba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -2883,11 +2896,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 908973528240651318, guid: ffefe647cb368b744bee7e8a6c72fdba, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -160.29993
+      value: -75.8
       objectReference: {fileID: 0}
     - target: {fileID: 908973528240651318, guid: ffefe647cb368b744bee7e8a6c72fdba, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -104.3
+      value: -42.5
       objectReference: {fileID: 0}
     - target: {fileID: 908973528240651318, guid: ffefe647cb368b744bee7e8a6c72fdba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2904,6 +2917,10 @@ PrefabInstance:
     - target: {fileID: 2467330144463657484, guid: ffefe647cb368b744bee7e8a6c72fdba, type: 3}
       propertyPath: m_Text
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2467330144463657484, guid: ffefe647cb368b744bee7e8a6c72fdba, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 76
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

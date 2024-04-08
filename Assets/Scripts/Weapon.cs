@@ -7,6 +7,7 @@ public class Weapon : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
     public float timeBetweenFiring;
+    public PlayerMovement playerMovement;
     public bool canFire;
     private float timer;
     void Update()
@@ -21,7 +22,7 @@ public class Weapon : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.Z) && canFire)
+        if (Input.GetKey(KeyCode.Z) && canFire && playerMovement.isDead == false)
         {
             canFire = false;
             Shoot();

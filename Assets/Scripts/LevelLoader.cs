@@ -39,7 +39,7 @@ public class LevelLoader : MonoBehaviour
     {
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(.50f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 

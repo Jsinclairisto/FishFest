@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject playerDeath;
     public GameObject finalScoreScreen;
     public bool playerHitRoutine = false;
-    public int health = 5;
+    public int health;
     public int Score = 0;
     public Text finalScore;
     public Text livesText;
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
             rotation.z -= Time.deltaTime * anglePerSecond;
             transform.localEulerAngles = rotation;
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isDead == false)
         {
             soundManager.PlaySFX(soundManager.swim);
             StartCoroutine(Swim());
