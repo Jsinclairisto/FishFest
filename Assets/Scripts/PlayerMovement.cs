@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float anglePerSecond;
@@ -11,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
     public GameObject playerDeath;
     public bool playerHitRoutine = false;
     public int health = 5;
+    public int Score = 0;
+    public Text livesText;
+    public Text scoreText;
     SoundManager soundManager;
     private ShakeManager shake;
     Renderer rend;
@@ -45,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
             //anim.Play("playerswim");
             rb.AddForce(transform.up * swimForce, ForceMode2D.Impulse);
         }
+        livesText.text = health.ToString();
+        scoreText.text = Score.ToString();
         if (health <= 0) 
         {
             soundManager.PlaySFX(soundManager.death);
@@ -57,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Enemy"))
+        if (col.CompareTag("Enemy") || col.CompareTag("EnemyBullet"))
         {
             /*Vector2 direction = (transform.position - col.transform.position).normalized;
             Vector2 knockback = direction * knockBackForce;

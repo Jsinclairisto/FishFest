@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PirhanaScript : MonoBehaviour
 {
     private float speed;
@@ -24,6 +24,9 @@ public class PirhanaScript : MonoBehaviour
     [SerializeField]
     private int pirhanaHealth = 3;
     private ShakeManager shake;
+    PlayerMovement playerMovement;
+    public int Score;
+    public Text scoreScreen;
     private bool flip;
     private Transform player;
     private Animator anim;
@@ -35,11 +38,13 @@ public class PirhanaScript : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         rb = GetComponent<Rigidbody2D>();
         //SetNewDestination();
         speed = Random.Range(5, 8);
         soundManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<SoundManager>();
-
+        scoreScreen = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
+        //scoreScreen = GameObject.FindGameObjectWithTag("Score");
         anim = GetComponent<Animator>();
         shake = GameObject.FindGameObjectWithTag("Shake").GetComponent<ShakeManager>();
 
@@ -56,6 +61,7 @@ public class PirhanaScript : MonoBehaviour
 
         if (pirhanaHealth == 0) 
         {
+            playerMovement.Score += 25;
             soundManager.PlaySFX(soundManager.death);
             shake.CamShake();
             Instantiate(deathEffect, transform.position, transform.rotation);

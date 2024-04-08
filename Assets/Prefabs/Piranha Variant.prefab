@@ -89,6 +89,10 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5429692363130870731, guid: 3d3373a6578d23f45bc0d31e91c1d1e9, type: 3}
+      propertyPath: scoreScreen
+      value: 
+      objectReference: {fileID: 2467330144463657484, guid: ffefe647cb368b744bee7e8a6c72fdba, type: 3}
+    - target: {fileID: 5429692363130870731, guid: 3d3373a6578d23f45bc0d31e91c1d1e9, type: 3}
       propertyPath: pirhanaHealth
       value: 3
       objectReference: {fileID: 0}

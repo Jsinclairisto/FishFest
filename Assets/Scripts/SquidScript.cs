@@ -25,7 +25,8 @@ public class SquidScript : MonoBehaviour
     SoundManager soundManager;
     Vector2 waypoint;
     [SerializeField]
-    private int squidHealth = 3;
+    private int squidHealth = 5;
+    PlayerMovement playerMovement;
     public GameObject projectile;
     private float timeBtwShots;
     public float startTimeBtwShots;
@@ -39,6 +40,7 @@ public class SquidScript : MonoBehaviour
     {
         //player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         moveSpot = GameObject.FindWithTag("moveSpot").transform;
         rb = GetComponent<Rigidbody2D>();
         waitTime = startWaitTime;
@@ -80,6 +82,7 @@ public class SquidScript : MonoBehaviour
         
         if (squidHealth == 0)
         {
+            playerMovement.Score += 75;
             soundManager.PlaySFX(soundManager.death);
             shake.CamShake();
             Instantiate(squidDeathEffect, transform.position, transform.rotation);

@@ -11,7 +11,8 @@ public class projectile : MonoBehaviour
 
     void Start()
     {
-        
+
+        Physics2D.IgnoreLayerCollision(7, 9);
         player = GameObject.FindGameObjectWithTag("Player").transform;
         target = new Vector2(player.position.x, player.position.y);
     }
