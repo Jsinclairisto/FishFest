@@ -15,6 +15,7 @@ TagManager:
   - EnemyBullet
   - Piranha
   - Squid
+  - FinalScore
   layers:
   - Default
   - TransparentFX

@@ -9,9 +9,11 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb;
     public GameObject playerDeath;
+    public GameObject finalScoreScreen;
     public bool playerHitRoutine = false;
     public int health = 5;
     public int Score = 0;
+    public Text finalScore;
     public Text livesText;
     public Text scoreText;
     SoundManager soundManager;
@@ -23,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         rend = GetComponent<Renderer>();
+        //finalScoreScreen = GameObject.FindGameObjectWithTag("FinalScore");
         soundManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<SoundManager>();
         c = rend.material.color;
         shake = GameObject.FindGameObjectWithTag("Shake").GetComponent<ShakeManager>();
@@ -50,9 +53,11 @@ public class PlayerMovement : MonoBehaviour
         }
         livesText.text = health.ToString();
         scoreText.text = Score.ToString();
+        finalScore.text = Score.ToString();
         if (health <= 0) 
         {
             soundManager.PlaySFX(soundManager.death);
+            finalScoreScreen.SetActive(true);
             shake.CamShake();
             transform.rotation = Quaternion.Euler(0, 0, 0);
             Instantiate(playerDeath, transform.position, transform.rotation);
