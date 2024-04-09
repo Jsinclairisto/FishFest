@@ -36,6 +36,19 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Vector3 rotation = transform.localEulerAngles;
+        if (health <= 0)
+        {
+            Physics2D.IgnoreLayerCollision(6, 8, false);
+            isDead = true;
+            soundManager.PlaySFX(soundManager.death);
+            soundManager.PlaySFX(soundManager.endMusic);
+            finalScoreScreen.SetActive(true);
+            shake.CamShake();
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            Instantiate(gameOverMusic, transform.position, transform.rotation);
+            Instantiate(playerDeath, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             rotation.z += Time.deltaTime * anglePerSecond;
@@ -56,32 +69,23 @@ public class PlayerMovement : MonoBehaviour
         livesText.text = health.ToString();
         scoreText.text = Score.ToString();
         finalScore.text = Score.ToString();
-        if (health <= 0) 
-        {
-            isDead = true;
-            soundManager.PlaySFX(soundManager.death);
-            soundManager.PlaySFX(soundManager.endMusic);
-            finalScoreScreen.SetActive(true);
-            shake.CamShake();
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-            Instantiate(gameOverMusic, transform.position, transform.rotation);
-            Instantiate(playerDeath, transform.position, transform.rotation);
-            Destroy(gameObject);
-        }
+        
+
     }
 
-    public void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Enemy") || col.CompareTag("EnemyBullet"))
+        if (col.CompareTag("Enemy") && health > 0)
         {
             /*Vector2 direction = (transform.position - col.transform.position).normalized;
             Vector2 knockback = direction * knockBackForce;
             rb.AddForce(knockback, ForceMode2D.Impulse);
             StartCoroutine(hit());*/
+            StartCoroutine("playerHit");
             soundManager.PlaySFX(soundManager.bulletHit);
             shake.CamShake();
             health--;
-            StartCoroutine("playerHit");
+            
         }
     }
 
