@@ -2721,6 +2721,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 801200752}
     - target: {fileID: 5122383876337707709, guid: b0a65a05d701c4d4080146e358f475be, type: 3}
+      propertyPath: anglePerSecond
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5122383876337707709, guid: b0a65a05d701c4d4080146e358f475be, type: 3}
       propertyPath: finalScoreScreen
       value: 
       objectReference: {fileID: 572631316}
