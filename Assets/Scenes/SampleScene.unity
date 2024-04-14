@@ -876,7 +876,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 171.6, y: -54.9}
+  m_AnchoredPosition: {x: 2.2, y: -69.1}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &801200752
@@ -906,7 +906,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -966,7 +966,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13.6, y: -55}
+  m_AnchoredPosition: {x: 3.9, y: -37.4}
   m_SizeDelta: {x: 362.063, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &817705823
@@ -1002,7 +1002,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Final Score:'
+  m_Text: Final Score
 --- !u!222 &817705824
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1318,7 +1318,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.8, y: -103}
+  m_AnchoredPosition: {x: 7.8, y: -105.8}
   m_SizeDelta: {x: 448.3128, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1289712261
@@ -1811,7 +1811,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.6, y: 11.9}
+  m_AnchoredPosition: {x: 2.6, y: 22.4}
   m_SizeDelta: {x: 291.234, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1457876964
@@ -2738,7 +2738,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 908973528240651318, guid: ffefe647cb368b744bee7e8a6c72fdba, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -98.8
+      value: -103.8
       objectReference: {fileID: 0}
     - target: {fileID: 908973528240651318, guid: ffefe647cb368b744bee7e8a6c72fdba, type: 3}
       propertyPath: m_AnchoredPosition.y
